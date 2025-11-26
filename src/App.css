@@ -1,38 +1,98 @@
-.App {
+body {
+  background: #adbdd3;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #7387af;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form input {
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  margin: 5px;
+  padding: 6px 10px;
+  border: none;
+  background: #204065;
   color: white;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background: #0d263d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-item {
+  display: grid;
+  grid-template-columns: 220px 170px 120px 120px;
+  align-items: center;
+  padding: 8px 0;
+  gap: 12px;
 }
+
+.contact-item input {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contact-btn {
+  padding: 8px 12px;
+  min-width: 110px;
+  text-align: center;
+}
+
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  min-width: 110px;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 200px 150px 120px 120px;
+  align-items: center;
+  padding: 8px 0;
+  gap: 10px;
+}
+
+
+.contact-name {
+  font-weight: 500;
+}
+
+.contact-phone {
+  font-family: monospace;
+}
+
+
