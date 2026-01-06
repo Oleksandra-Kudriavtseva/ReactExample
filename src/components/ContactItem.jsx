@@ -19,7 +19,7 @@ function ContactItem({ contact, deleteContact, editContact }) {
     return (
         <div className="contact-item">
 
-            {/* Якщо режим редагування увімкнено */}
+            
             {isEditing ? (
                 <>
                     <input
