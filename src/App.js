@@ -1,54 +1,55 @@
-import React, { useState, useEffect } from "react";
-import ContactForm from "./components/ContactForm";
-import ContactList from "./components/ContactList";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Movie from "./pages/Movie";
+import Book from "./pages/Book";
+import Game from "./pages/Game";
 
 function App() {
-  const [contacts, setContacts] = useState([]);
-
-
-  useEffect(() => {
-    const savedContacts = localStorage.getItem("contacts");
-    if (savedContacts) {
-      setContacts(JSON.parse(savedContacts));
-    }
-  }, []);
-
-
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-
-
-  const addContact = (contact) => {
-    setContacts([...contacts, { ...contact, id: Date.now() }]);
-  };
-
-
-  const deleteContact = (id) => {
-    setContacts(contacts.filter((c) => c.id !== id));
-  };
-
-
-  const editContact = (id, newName, newPhone) => {
-    const updated = contacts.map(c =>
-        c.id === id ? { ...c, name: newName, phone: newPhone } : c
-    );
-    setContacts(updated);
-  };
-
-
   return (
-      <div className="app">
-        <h1>Телефонна книга</h1>
-        <ContactForm addContact={addContact} />
-        <ContactList
-            contacts={contacts}
-            deleteContact={deleteContact}
-            editContact={editContact}
-        />
-      </div>
+      <Router>
+        <div style={styles.container}>
+          <h1 style={styles.title}>Recommendation System</h1>
+
+          <nav style={styles.nav}>
+            <Link style={styles.link} to="/movie">Movies</Link>
+            <Link style={styles.link} to="/book">Books</Link>
+            <Link style={styles.link} to="/game">Games</Link>
+          </nav>
+
+          <Routes>
+            <Route path="/movie" element={<Movie />} />
+            <Route path="/book" element={<Book />} />
+            <Route path="/game" element={<Game />} />
+          </Routes>
+        </div>
+      </Router>
   );
 }
+
+const styles = {
+  container: {
+    minHeight: "100vh",
+    padding: 30,
+    background: "linear-gradient(135deg, #e6ecff, #f5f8ff)"
+  },
+  title: {
+    textAlign: "center",
+    color: "#2c3e50"
+  },
+  nav: {
+    display: "flex",
+    justifyContent: "center",
+    gap: 20,
+    marginBottom: 30
+  },
+  link: {
+    textDecoration: "none",
+    padding: "10px 18px",
+    borderRadius: 20,
+    background: "#3b5b8a",
+    color: "white",
+    fontWeight: "500",
+    transition: "0.3s"
+  }
+};
 
 export default App;
